@@ -1,79 +1,89 @@
-## Welcome to Apache Tomcat!
+# Mondrian avec Apache Tomcat
 
-### What Is It?
+Ce projet propose une distribution de Mondrian OLAP Server intégrée à Apache Tomcat, prête à l'emploi pour l'expérimentation et l'apprentissage.
 
-The Apache Tomcat® software is an open source implementation of the Jakarta
-Servlet, Jakarta Pages, Jakarta Expression Language and Jakarta WebSocket
-technologies. The Jakarta Servlet, Jakarta Pages, Jakarta Expression Language and
-Jakarta WebSocket specifications are developed as part of the
-[Jakarta EE Platform](https://jakarta.ee/specifications/).
+## Table des matières
+- [Présentation](#présentation)
+- [Prérequis](#prérequis)
+- [Installation](#installation)
+- [Configuration de Java](#configuration-de-java)
+- [Démarrage du serveur](#démarrage-du-serveur)
+- [Tests de l'installation](#tests-de-linstallation)
+- [Arrêt du serveur](#arrêt-du-serveur)
+- [Dépannage](#dépannage)
+- [Ressources utiles](#ressources-utiles)
 
-The Apache Tomcat software is developed in an open and participatory
-environment and released under the
-[Apache License version 2](https://www.apache.org/licenses/). The Apache Tomcat
-project is intended to be a collaboration of the best-of-breed developers from
-around the world. We invite you to participate in this open development
-project. To learn more about getting involved,
-[click here](https://tomcat.apache.org/getinvolved.html) or keep reading.
+## Présentation
+Ce dépôt fournit un environnement clé en main pour utiliser Mondrian avec Tomcat. Il est destiné à l'enseignement, à l'expérimentation et à la découverte de l'OLAP.
 
-Apache Tomcat software powers numerous large-scale, mission-critical web
-applications across a diverse range of industries and organizations. Some of
-these users and their stories are listed on the
-[PoweredBy wiki page](https://cwiki.apache.org/confluence/display/TOMCAT/PoweredBy).
+## Prérequis
+- **Java JDK 21 ou supérieur** (Java 8 minimum, mais 21 recommandé)
+- Système d'exploitation : Windows, macOS ou Linux
+- Navigateur web moderne
 
-Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
-project logo are trademarks of the Apache Software Foundation.
+## Installation
+1. **Téléchargez le projet** :
+   - [Archive ZIP du projet](https://github.com/lemire/apache-tomcat-mondrian/archive/refs/heads/main.zip)
+2. **Décompressez l'archive** dans un dossier sans espaces ni caractères spéciaux (ex. `C:/MonCours` ou `~/mondrian-tomcat`).
 
-### Get It
+## Configuration de Java
+- Ouvrez un terminal (macOS/Linux) ou une invite de commandes (Windows).
+- Vérifiez la version de Java :
+  ```sh
+  java -version
+  javac -version
+  ```
+- Si besoin, installez le JDK depuis [Adoptium](https://adoptium.net).
+- **Sous Windows** :
+  - Ajoutez le dossier `bin` du JDK à la variable d'environnement `PATH`.
+  - Définissez la variable `JAVA_HOME` :
+    ```sh
+    SET JAVA_HOME=C:\chemin\vers\votre\jdk
+    ```
 
-For every major Tomcat version there is one download page containing
-links to the latest binary and source code downloads, but also
-links for browsing the download directories and archives:
-- [Tomcat 11](https://tomcat.apache.org/download-11.cgi)
-- [Tomcat 10](https://tomcat.apache.org/download-10.cgi)
-- [Tomcat 9](https://tomcat.apache.org/download-90.cgi)
+## Démarrage du serveur
+1. **Vérifiez que le port 8080 est libre** :
+   - Visitez [http://localhost:8080](http://localhost:8080). Si une page s'affiche, modifiez le port dans `conf/server.xml` (ex. 8090).
+2. **Rendez-vous dans le dossier `bin`** du projet.
+4. **Démarrez Tomcat** :
+   - **Windows** :
+     ```sh
+     startup.bat
+     ```
+   - **macOS/Linux** :
+     ```sh
+     ./startup.sh
+     ```
+5. Accédez à [http://localhost:8080](http://localhost:8080) pour vérifier que Tomcat fonctionne.
 
-To facilitate choosing the right major Tomcat version one, we have provided a
-[version overview page](https://tomcat.apache.org/whichversion.html).
+## Tests de l'installation
+- Rendez-vous sur [http://localhost:8080/mondrian-embedded/](http://localhost:8080/mondrian-embedded/).
+- Cliquez sur **JPivot pivot table** pour tester l'interface graphique.
+- Testez une requête MDX dans l'interface ad hoc :
+  ```mdx
+  select [Time].[1997] on columns from [Sales]
+  ```
+- Un résultat doit s'afficher.
 
-### Documentation
+## Arrêt du serveur
+- **Windows** :
+  ```sh
+  shutdown.bat
+  ```
+- **macOS/Linux** :
+  ```sh
+  ./shutdown.sh
+  ```
 
-The documentation available as of the date of this release is
-included in the docs webapp which ships with tomcat. You can access that webapp
-by starting tomcat and visiting <http://localhost:8080/docs/> in your browser.
-The most up-to-date documentation for each version can be found at:
-- [Tomcat 11](https://tomcat.apache.org/tomcat-11.0-doc/)
-- [Tomcat 10](https://tomcat.apache.org/tomcat-10.1-doc/)
-- [Tomcat 9](https://tomcat.apache.org/tomcat-9.0-doc/)
+## Dépannage
+- Si Tomcat ne démarre pas, vérifiez la configuration de Java (`JAVA_HOME`, `PATH`).
+- Si le port 8080 est occupé, modifiez-le dans `conf/server.xml`.
+- En cas de problème, faites des captures d'écran complètes de vos manipulations et transmettez-les à votre encadrant.
 
-### Installation
+## Ressources utiles
+- [Documentation officielle Tomcat](https://tomcat.apache.org/tomcat-9.0-doc/index.html)
+- [Mondrian OLAP](http://mondrian.pentaho.com/)
 
-Please see [RUNNING.txt](RUNNING.txt) for more info.
+---
 
-### Licensing
-
-Please see [LICENSE](LICENSE) for more info.
-
-### Support and Mailing List Information
-
-* Free community support is available through the
-[tomcat-users](https://tomcat.apache.org/lists.html#tomcat-users) email list and
-a dedicated [IRC channel](https://tomcat.apache.org/irc.html) (#tomcat on
-Freenode).
-
-* If you want freely available support for running Apache Tomcat, please see the
-resources page [here](https://tomcat.apache.org/findhelp.html).
-
-* If you want to be informed about new code releases, bug fixes,
-security fixes, general news and information about Apache Tomcat, please
-subscribe to the
-[tomcat-announce](https://tomcat.apache.org/lists.html#tomcat-announce) email
-list.
-
-* If you have a concrete bug report for Apache Tomcat, please see the
-instructions for reporting a bug
-[here](https://tomcat.apache.org/bugreport.html).
-
-### Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for more info.
+*Merci de lire attentivement toutes les consignes avant de demander de l'aide. Les captures d'écran sont obligatoires pour tout support.*
