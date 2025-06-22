@@ -17,7 +17,7 @@ Ce projet propose une distribution de Mondrian OLAP Server intégrée à Apache 
 Ce dépôt fournit un environnement clé en main pour utiliser Mondrian avec Tomcat. Il est destiné à l'enseignement, à l'expérimentation et à la découverte de l'OLAP.
 
 ## Prérequis
-- **Java JDK 21 ou supérieur** (Java 8 minimum, mais 21 recommandé)
+- **Java JDK 21 ou supérieur** (Java 8 minimum, mais 21 ou mieux recommandé)
 - Système d'exploitation : Windows, macOS ou Linux
 - Navigateur web moderne
 
@@ -27,19 +27,13 @@ Ce dépôt fournit un environnement clé en main pour utiliser Mondrian avec Tom
 2. **Décompressez l'archive** dans un dossier sans espaces ni caractères spéciaux (ex. `C:/MonCours` ou `~/mondrian-tomcat`).
 
 ## Configuration de Java
-- Ouvrez un terminal (macOS/Linux) ou une invite de commandes (Windows).
+- Ouvrez un terminal (macOS/Linux) ou une invite de commandes (Windows). Pour  une invite de commandes sous Windows, cliquez sur l’icône de recherche dans la barre des tâches ou appuyez sur Windows + S. Tapez Invite de commande ou cmd.
 - Vérifiez la version de Java :
   ```sh
   java -version
   javac -version
   ```
 - Si besoin, installez le JDK depuis [Adoptium](https://adoptium.net).
-- **Sous Windows** :
-  - Ajoutez le dossier `bin` du JDK à la variable d'environnement `PATH`.
-  - Définissez la variable `JAVA_HOME` :
-    ```sh
-    SET JAVA_HOME=C:\chemin\vers\votre\jdk
-    ```
 
 ## Démarrage du serveur
 1. **Vérifiez que le port 8080 est libre** :
@@ -76,14 +70,15 @@ Ce dépôt fournit un environnement clé en main pour utiliser Mondrian avec Tom
   ```
 
 ## Dépannage
-- Si Tomcat ne démarre pas, vérifiez la configuration de Java (`JAVA_HOME`, `PATH`).
+- Si Tomcat ne démarre pas, vérifiez la configuration de Java (`JAVA_HOME`, `PATH`). Sous Windows, voir la sous-section suivante. Sous Linux et macOS, tapez `echo $JAVA_HOME`.
 - Si le port 8080 est occupé, modifiez-le dans `conf/server.xml`.
 - En cas de problème, faites des captures d'écran complètes de vos manipulations et transmettez-les à votre encadrant.
+
+### Variables d'environnement sous Windows
+
+Par défault, l'outil d'installation Adoptium configure les variables `PATH` et `JAVA_HOME` correctment. Cependant, ces variables peuvent être mal configurées sur votre machine. Si les variables PATH et JAVA_HOME ne sont pas correctement configurées après l'installation d'Adoptium sur Windows 11, vous pouvez les ajuster manuellement. Ouvrez le menu Démarrer, recherchez "Variables d’environnement" et sélectionnez "Modifier les variables d’environnement du système". Dans la fenêtre qui s’ouvre, cliquez sur "Variables d’environnement". Sous "Variables système", vérifiez si JAVA_HOME existe et pointe vers le répertoire d’installation de Java (par exemple, C:\Program Files\Eclipse Adoptium\temurin-17-jdk). S’il est absent ou incorrect, créez ou modifiez JAVA_HOME avec le chemin correct. Ensuite, dans la variable Path (sous "Variables système"), ajoutez %JAVA_HOME%\bin si ce n’est pas déjà fait. Cliquez sur "OK" pour enregistrer, puis ouvrez une nouvelle invite de commande et tapez java -version pour vérifier.
 
 ## Ressources utiles
 - [Documentation officielle Tomcat](https://tomcat.apache.org/tomcat-9.0-doc/index.html)
 - [Mondrian OLAP](http://mondrian.pentaho.com/)
 
----
-
-*Merci de lire attentivement toutes les consignes avant de demander de l'aide. Les captures d'écran sont obligatoires pour tout support.*
