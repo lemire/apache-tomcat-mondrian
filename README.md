@@ -4,6 +4,7 @@ Ce projet propose une distribution de Mondrian OLAP Server intégrée à Apache 
 
 ## Table des matières
 - [Présentation](#présentation)
+- [HTTP](#http)
 - [Prérequis](#prérequis)
 - [Installation](#installation)
 - [Configuration de Java](#configuration-de-java)
@@ -15,6 +16,18 @@ Ce projet propose une distribution de Mondrian OLAP Server intégrée à Apache 
 
 ## Présentation
 Ce dépôt fournit un environnement clé en main pour utiliser Mondrian avec Tomcat. Il est destiné à l'enseignement, à l'expérimentation et à la découverte de l'OLAP.
+
+## HTTP
+
+Le protocole HTTP, ou HyperText Transfer Protocol, est un standard fondamental du web qui permet la communication entre un client, comme un navigateur internet, et un serveur. Il définit les règles pour l'échange de données, telles que les requêtes pour charger une page web et les réponses contenant du contenu comme du texte, des images ou des vidéos. HTTP fonctionne sur une couche applicative du modèle TCP/IP, et sa version sécurisée, HTTPS, ajoute une couche de chiffrement pour protéger les échanges.
+
+Les ports, dans le contexte des réseaux informatiques, sont des numéros virtuels utilisés pour identifier les services ou les applications sur une machine. Ils permettent de multiplexage, c'est-à-dire de gérer plusieurs connexions simultanées sur une même adresse IP. Par exemple, le port 80 est traditionnellement associé à HTTP, tandis que le port 443 l'est à HTTPS. Les ports vont de 0 à 65535, et ils sont essentiels pour router le trafic réseau vers le bon processus.
+
+Sur une machine donnée, un seul serveur peut être actif par port à un moment donné. Cela signifie qu'un processus d'écoute, comme un serveur web, monopolise ce port pour recevoir des connexions entrantes. Si un autre programme tente d'utiliser le même port, il recevra une erreur, car le système d'exploitation empêche les conflits pour éviter les interférences. Cette exclusivité assure que les paquets réseau soient dirigés correctement vers l'application appropriée.
+
+Les ports sont classés en deux catégories principales : les ports réservés et les ports utilisateurs. Les ports réservés, également appelés ports bien connus, vont de 0 à 1023. Ils sont assignés par l'Internet Assigned Numbers Authority (IANA) à des services standards, comme le port 80 pour HTTP ou le port 21 pour FTP, et nécessitent souvent des privilèges administrateur pour être utilisés, ce qui les protège contre une appropriation abusive. En revanche, les ports utilisateurs, ou ports éphémères, couvrent la plage de 1024 à 65535. Ils sont disponibles pour les applications ordinaires et les connexions temporaires, sans besoin de droits élevés, et sont souvent alloués dynamiquement par le système.
+
+Pour vérifier si un port est utilisé sur une machine, plusieurs méthodes existent selon le système d'exploitation. Par contre, pour vérifier si un serveur HTTP est présent sur un port donné, il suffit le plus souvent d'ouvrir l'URL http://localhost:PORT dans un navigateur. Par exemple, pour vérifier si le port 8123 est utilisé, il suffira d'ouvrir l'URL http://localhost:8123. Si le port est libre, votre navigateur affichera un message d'erreur.
 
 ## Prérequis
 - **Java JDK 21 ou supérieur** (Java 8 minimum, mais 21 ou mieux recommandé)
@@ -81,4 +94,5 @@ Par défault, l'outil d'installation Adoptium configure les variables `PATH` et 
 ## Ressources utiles
 - [Documentation officielle Tomcat](https://tomcat.apache.org/tomcat-9.0-doc/index.html)
 - [Mondrian OLAP](http://mondrian.pentaho.com/)
+
 
