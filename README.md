@@ -73,6 +73,9 @@ Pour vérifier si un port est utilisé sur une machine, plusieurs méthodes exis
 - Un résultat doit s'afficher.
 
 ## Arrêt du serveur
+
+Il est important de mettre le serveur à l'arrêt quand vous aurez terminé.
+
 - **Windows** :
   ```sh
   shutdown.bat
@@ -86,6 +89,7 @@ Pour vérifier si un port est utilisé sur une machine, plusieurs méthodes exis
 - Si Tomcat ne démarre pas, vérifiez la configuration de Java (`JAVA_HOME`, `PATH`). Sous Windows, voir la sous-section suivante. Sous Linux et macOS, tapez `echo $JAVA_HOME`.
 - Si le port 8080 est occupé, modifiez-le dans `conf/server.xml`.
 - En cas de problème, faites des captures d'écran complètes de vos manipulations et transmettez-les à votre encadrant.
+- Si vous pouvez avoir accès à [http://localhost:8080](http://localhost:8080) (page Tomcat), mais pas à [http://localhost:8080/mondrian-embedded/](http://localhost:8080/mondrian-embedded/), il est possible qu'un autre serveur Tomcat roulait déjà sur votre machine. Vous pourriez alors mettre fin à cet autre serveur et recommencer la procédure.
 
 ### Variables d'environnement sous Windows
 
