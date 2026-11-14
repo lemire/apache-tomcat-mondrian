@@ -7,3 +7,5 @@ temp/*
 # Application déployée (dépliée) à partir de webapps/mondrian-embedded.war
 webapps/mondrian-embedded/
 .DS_Store
+# Journal de Derby, créé dans le dossier courant au démarrage
+derby.log
