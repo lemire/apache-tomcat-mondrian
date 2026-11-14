@@ -30,7 +30,7 @@ Les ports sont classés en deux catégories principales : les ports réservés e
 Pour vérifier si un port est utilisé sur une machine, plusieurs méthodes existent selon le système d'exploitation. Par contre, pour vérifier si un serveur HTTP est présent sur un port donné, il suffit le plus souvent d'ouvrir l'URL http://localhost:PORT dans un navigateur. Par exemple, pour vérifier si le port 8123 est utilisé, il suffira d'ouvrir l'URL http://localhost:8123. Si le port est libre, votre navigateur affichera un message d'erreur.
 
 ## Prérequis
-- **Java JDK 21 ou supérieur** (Java 8 minimum, mais 21 ou mieux recommandé)
+- **Java JDK 21 ou supérieur** (Java 17 minimum : la version de Tomcat incluse, 11.0.7, ne fonctionne pas avec une version plus ancienne de Java)
 - Système d'exploitation : Windows, macOS ou Linux
 - Navigateur web moderne
 
@@ -96,7 +96,8 @@ Il est important de mettre le serveur à l'arrêt quand vous aurez terminé.
 Par défault, l'outil d'installation Adoptium configure les variables `PATH` et `JAVA_HOME` correctment. Cependant, ces variables peuvent être mal configurées sur votre machine. Si les variables PATH et JAVA_HOME ne sont pas correctement configurées après l'installation d'Adoptium sur Windows 11, vous pouvez les ajuster manuellement. Ouvrez le menu Démarrer, recherchez "Variables d’environnement" et sélectionnez "Modifier les variables d’environnement du système". Dans la fenêtre qui s’ouvre, cliquez sur "Variables d’environnement". Sous "Variables système", vérifiez si JAVA_HOME existe et pointe vers le répertoire d’installation de Java (par exemple, C:\Program Files\Eclipse Adoptium\temurin-17-jdk). S’il est absent ou incorrect, créez ou modifiez JAVA_HOME avec le chemin correct. Ensuite, dans la variable Path (sous "Variables système"), ajoutez %JAVA_HOME%\bin si ce n’est pas déjà fait. Cliquez sur "OK" pour enregistrer, puis ouvrez une nouvelle invite de commande et tapez java -version pour vérifier.
 
 ## Ressources utiles
-- [Documentation officielle Tomcat](https://tomcat.apache.org/tomcat-9.0-doc/index.html)
-- [Mondrian OLAP](http://mondrian.pentaho.com/)
+- [Documentation officielle Tomcat 11](https://tomcat.apache.org/tomcat-11.0-doc/index.html)
+- [Documentation de Mondrian OLAP](https://mondrian.pentaho.com/documentation/) (dont la [référence MDX](https://mondrian.pentaho.com/documentation/mdx.html))
+- [Code source de Mondrian sur GitHub](https://github.com/pentaho/mondrian)
 
 
