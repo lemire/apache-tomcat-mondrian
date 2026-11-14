@@ -10,6 +10,7 @@ Ce projet propose une distribution de Mondrian OLAP Server intégrée à Apache 
 - [Configuration de Java](#configuration-de-java)
 - [Démarrage du serveur](#démarrage-du-serveur)
 - [Tests de l'installation](#tests-de-linstallation)
+- [Exemples fournis](#exemples-fournis)
 - [Arrêt du serveur](#arrêt-du-serveur)
 - [Dépannage](#dépannage)
 - [Ressources utiles](#ressources-utiles)
@@ -65,12 +66,27 @@ Pour vérifier si un port est utilisé sur une machine, plusieurs méthodes exis
 
 ## Tests de l'installation
 - Rendez-vous sur [http://localhost:8080/mondrian-embedded/](http://localhost:8080/mondrian-embedded/).
-- Cliquez sur **JPivot pivot table** pour tester l'interface graphique.
-- Testez une requête MDX dans l'interface ad hoc :
+- Cliquez sur **Tableau croisé JPivot** pour tester l'interface graphique.
+- Ouvrez **Requêtes MDX ad hoc**, saisissez la requête suivante et cliquez sur **Exécuter** :
   ```mdx
   select [Time].[1997] on columns from [Sales]
   ```
-- Un résultat doit s'afficher.
+- Un résultat doit s'afficher (266 773 unités vendues).
+
+## Exemples fournis
+
+La page d'accueil de l'application ([http://localhost:8080/mondrian-embedded/](http://localhost:8080/mondrian-embedded/)) propose les exemples suivants, tous sur la base d'exemple FoodMart (cube `Sales`), stockée dans une base Derby intégrée :
+
+- **Tableau croisé JPivot** : unités vendues, coût et ventes de 1997, à explorer par forage, filtres, *drill-through* et graphiques.
+- **JPivot avec 4 hiérarchies** : quatre dimensions (Gender, Marital Status, Customers, Product) sur l'axe des lignes.
+- **JPivot avec le rôle « California manager »** : la même analyse, restreinte par un rôle de sécurité défini dans le schéma.
+- **JPivot avec flèches** et **JPivot avec couleurs** : un membre calculé ROI mis en forme (flèche ou couleur) par son `format_string`.
+- **Requêtes MDX ad hoc** : un éditeur pour saisir et exécuter vos propres requêtes MDX, avec une liste d'exemples (bouton **Afficher l'exemple**).
+- **Requêtes mises en forme avec la bibliothèque de balises** et **Tableau simple avec la bibliothèque de balises** : des requêtes affichées par la bibliothèque de balises JSP de Mondrian.
+
+L'interface de JPivot (infobulles de la barre d'outils, navigateur de cube, éditeur MDX) est en français, quelle que soit la langue du navigateur. Les noms des cubes, des dimensions et des membres de FoodMart (`[Time]`, `[Store]`, `Unit Sales`…) restent en anglais, comme dans la base.
+
+Les zones de saisie MDX (page ad hoc et éditeur MDX de JPivot) offrent la coloration syntaxique grâce à [CodeMirror 5](https://codemirror.net/5/) (licence MIT), inclus dans l'application : aucune connexion Internet n'est nécessaire.
 
 ## Arrêt du serveur
 

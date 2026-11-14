@@ -1,0 +1,9 @@
+# Fichiers produits par Tomcat à l'exécution
+logs/*
+!logs/.gitkeep
+work/
+temp/*
+!temp/safeToDelete.tmp
+# Application déployée (dépliée) à partir de webapps/mondrian-embedded.war
+webapps/mondrian-embedded/
+.DS_Store
